@@ -1,0 +1,134 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    #box{
+        width: 500px;
+        height: 500px;
+        border: 1px solid red;
+        margin: 30px auto;
+        background: #D4CFC9;
+        padding: 10px;
+    }
+    #game{
+        width: 280px;
+        height: 480px;
+        background-color: rgba(0, 0, 0, 1);
+        float: left;
+    }
+    .control{
+        padding-right: 40px;
+        float:right;
+    }
+    .control>.next{
+        width: 85px;
+        height: 82px;
+        background-color: rgba(0, 0, 0, 1);
+    }
+    .control table{
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+    .control td{
+        width: 40px;
+        height: 25px;
+        border: 1px solid gainsboro;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .control .info{
+        margin: 40px 0;
+    }
+    .control label{
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .control input{
+        width: 50px;
+    }
+    p{
+        font-size: 12px;
+    }
+    .reset{
+        margin: 20px 0 0 40px;
+        font-size: 12px;
+    }
+    #box>#game table,.next>table{
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+    #box>#game table td,.next table td{
+        border: 1px solid rgba(255,255,255,0.1);
+        width: 20px;
+        height: 20px;
+    }
+    /* I-2、L-4、J-4、O-1、Z-2、S-2、T-4、P-1 */
+    .I{background-color: #f00;}
+    .L{background-color:#044D22;}
+    .J{background-color: #51FF00;}
+    .O{background-color: #DB15E6;}
+    .Z{background-color: #E68415;}
+    .S{background-color: rgb(194, 207, 10);}
+    .T{background-color: #2A5200;}
+    .P{background-color: orangered;}
+        /* .white{
+            background-color: white;
+        }  测试方块用*/
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h5>俄罗斯方块</h5>
+        <div id="game"></div>
+        <div class="control">
+            <h5>下一个</h5>
+            <div class="next"></div>
+            <div class="info">
+                <label>分数：<input id="score" type="text" value="1" disabled></label>
+                <br/>
+                <br/>
+                <label>用时：<input id="timeout" type="text" value="" disabled></label>
+            </div>
+            <div class="btn">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>↑&nbsp;旋转</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                            <td>向左<br/>←</td>
+                            <td></td>
+                            <td>向右<br/>→</td>
+                    </tr>
+                    <tr>
+                            <td></td>
+                            <td>↓&nbsp;到底</td>
+                            <td></td>
+                    </tr>
+                </table>
+                <p>空格键：开始/暂停</p>
+                <button class="reset">重新开始,再按空格键</button>
+            </div>
+        </div>
+    </div>
+    <audio src="audio/一键到底.wav" id="toFastDown" ></audio>
+    <audio src="audio/旋转.wav" id="toRotate"></audio>
+    <audio src="audio/消行.wav" id="delLine"></audio>
+    <audio src="audio/移动.wav" id="toLeftRight"></audio>
+</body>
+<script src="js/BlockType_json.js"></script>   
+<script src="js/Game.js"></script>   
+<script src="js/Block.js"></script>   
+<script src="js/Map.js"></script>  
+<script>
+        var game = new Game();
+</script> 
+</html>
